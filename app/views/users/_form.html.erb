@@ -1,0 +1,24 @@
+<%= form_with(model: user) do |u| %>
+  <%= render "shared/errors", object: user %>
+
+  <%= u.label :name %>
+  <%= u.text_field :name, autofocus: true %>
+
+  <%= u.label :usernme %>
+  <%= u.text_field :username %>
+
+  <%= u.label :email %>
+  <%= u.email_field :email %>  
+
+  <%= u.label :password %>
+  <%= u.password_field :password %>
+
+  <%= u.label :password_confirmation, "Confirm Password" %>
+  <%= u.password_field :password_confirmation %>
+  
+  <% if user.new_record? %>
+    <%= u.submit "Create Account" %>
+  <% else %>
+    <%= u.submit "Update Account" %>
+  <% end %>
+<% end %>
